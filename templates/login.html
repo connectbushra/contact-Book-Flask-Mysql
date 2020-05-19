@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{url_for('static', filename='fonts/material-icon/css/material-design-iconic-font.min.css')}}">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+<div class="main"><section class="signup">
+<!--    <img src="{{url_for('static',filename='images/contact.jpg')}}}" alt="">-->
+            <div class="container">
+                <div class="signup-content">
+
+                    <form method="POST" action="{{ url_for('login') }}" id="signup-form" class="signup-form" >
+                        <h2 class="form-title">login Here</h2>
+                                                        <div class="msg">{%with messages = get_flashed_messages()%} {%if messages%} {% for message in messages %}
+    {{message}}
+    {%endfor%} {%endif%} {%endwith%}</div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="username" id="username" placeholder="User Name" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="password" id="password" placeholder="Password" required/>
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="login"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+   <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

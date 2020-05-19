@@ -1,0 +1,41 @@
+<html><title>Update Contact</title>
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='add_new.css')}}">
+</head>
+<body>
+ {% for info in data %}
+<div class="container">
+  <form id="contact" action="/update/{{serial}}" method="post">
+    <h3>Update  Contact</h3>
+      <fieldset>
+      <input placeholder="Your Phone Number *"  name="phone_no1" type="tel" value='{{info.1}}' tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Username *" type="text" name="name" tabindex="1" value='{{info.2}}' required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address *" name="email" type="email" value='{{info.3}}' tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Another Phone Number (optional)" name="phone_no2" type="tel" value='{{info.4}}' tabindex="3" >
+    </fieldset>
+    <fieldset>
+      <input placeholder="company (optional)" name="company" type="text" value='{{info.5}}' tabindex="4" >
+    </fieldset>
+    <fieldset>
+       <select id="select" name="group">
+        {%for g in grp%}
+          {% if g=='' %}
+            <option value="{{info.6}}">{{info.6}}</option>
+          {% else %}
+          <option vlue="{{g}}">{{g}}</option>{% endif %}
+        {%endfor%}
+    </select><br>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit">update</button>
+    </fieldset>
+     </form>
+    {% endfor %}
+</div>
+</body></html>

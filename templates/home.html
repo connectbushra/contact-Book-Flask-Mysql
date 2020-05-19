@@ -1,0 +1,58 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='add_new.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+      <div class="btn-group">
+          <form action="/index" ><button >Home</button></form>
+          <form action="/add_new" ><button>Add contact</button></form>
+          <form action="/logout" ><button>Log Out</button></form>
+          <form action="/index" ><button>Back</button></form>
+          <form action="/search" method='POST'>
+                <input type="text" name="search" placeholder="Search by name" autufocus="autofocus" >
+                <input type="submit" name="search" value="search">
+          </form>
+       </div>
+<div class="flash">
+    {%with messages = get_flashed_messages()%} {%if messages%} {% for message in messages %}
+        {{message}}
+    {%endfor%} {%endif%} {%endwith%}
+</div>
+<table class="content-table">
+       <thead>
+         <tr>
+             <th>No</th>
+            <th>phone no1</th>
+            <th>name</th>
+            <th>email id</th>
+            <th>phone no2</th>
+            <th>company</th>
+            <th>Group</th>
+            <th>action</th>
+             <th></th>
+         </tr>
+       </thead>
+       <tbody>
+       {% for info in info %}
+        <tr>
+            <td>{{info[0]}}</td>
+            <td>{{info[1]}}</td>
+            <td>{{info[2]}}</td>
+            <td>{{info[3]}}</td>
+            <td>{{info[4]}}</td>
+            <td>{{info[5]}}</td>
+            <td>{{info[6]}}</td>
+            <td class="float-right">
+                <a href='/delete/{{info.0}}' ><button class="btn btn-danger"  onclick="return   confirm('are u sure Tou want to delete>')" >Delete</button></a>
+                <a href='/update/{{info.0}}'><button  class="btn btn-primary">Update</button></a>
+            </td>
+            {% endfor %}
+       </tbody>
+    </table>
+
+</body>
+
+</html>

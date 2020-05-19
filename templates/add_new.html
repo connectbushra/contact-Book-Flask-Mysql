@@ -1,0 +1,38 @@
+<html><title>New Contact</title>
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='add_new.css')}}">
+</head>
+<body>
+<div class="container">
+  <form id="contact" action="add_new" method="post">
+    <h3>Add contact</h3>
+      <fieldset>
+      <input placeholder="Your Phone Number *"  name="phone_no1" type="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Username *" type="text" name="name" tabindex="1" required >
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address *" name="email" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Another Phone Number (optional)" name="phone_no2" type="tel" tabindex="3" >
+    </fieldset>
+    <fieldset>
+      <input placeholder="company (optional)" name="company" type="text" tabindex="4" >
+    </fieldset>
+    <fieldset>
+        <select id="select" name="group">
+        {%for g in data%}
+             <option value="{{g}}">{{g}}</option>
+        {%endfor%}
+    </select>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit">Submit</button>
+    </fieldset>
+      <p class="copyright"><a href="/index" target="_blank" >home</a></p>
+  </form>
+</div>
+</body>
+</html>

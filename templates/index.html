@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>index</title>
+       <link rel="stylesheet" href="{{url_for('static',filename='add.css')}}">
+</head>
+<body>
+      <div class="container">
+            <nav>
+                  <input type="checkbox" id="nav" class="hidden">
+                  <label for="nav" class="nav-btn">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                  </label>
+                  <div class="logo">
+                        <form action="/search" method='POST'>
+                          <input type="text" name="search" placeholder="Search by name" autufocus="autofocus" >
+                          <input type="submit" name="search" value="search">
+                        </form>
+                  </div>
+                  <div class="nav-wrapper">
+                        <ul>
+                              <li><a href="/index">Home</a></li>
+                              <li><a href="/add_new">Add new contact</a></li>
+                              <li><a href="/home">view All</a></li>
+                        </ul>
+                  </div>
+            </nav>
+      </div>
+</body>
+</html>
